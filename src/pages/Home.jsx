@@ -2,6 +2,7 @@ import React from 'react';
 import DefinitionCard from '../components/DefinitionCard';
  /* Date Picker imports */
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-date-picker';
 
 function Home() {
@@ -10,9 +11,12 @@ function Home() {
 
     /* Get the values of the birthday */
     const formattedBirthdate = birthdate.toISOString().slice(0,10);
-    const BirthdateYear = formattedBirthdate.slice(0,4);
-    const BirthdateMonth = formattedBirthdate.slice(5,7);
-    const BirthdateDay = formattedBirthdate.slice(8,11);
+
+    /* function to send formattedBirthdate to the loading screen for fetching from API */
+    const navigate = useNavigate();
+    const sendtoLoading = () => {
+        navigate('/loading', {state:{formattedBirthdate}});
+    };
 
     return (
         <div className='centered-home-screen'>
@@ -32,12 +36,8 @@ function Home() {
                 <DatePicker onChange={setBirthdate} value={birthdate}/>
             </div>
             <p>Your date = {formattedBirthdate} </p>
-            <p>Your Birthdate Year = {BirthdateYear} </p>
-            <p>Your Birthdate Month = {BirthdateMonth} </p>
-            <p>Your Birthdate Day = {BirthdateDay} </p>
-
             <div className='button-view-past-life'>
-                <button>View My Past Life</button>
+                <button className='home-button' onClick={() => {sendtoLoading()}}>View My Past Life</button>
             </div>
         </div>
     );

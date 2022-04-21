@@ -12,6 +12,17 @@
   padding: 15px;
 }
 
+.home-button {
+  transition-duration: 0.4s;
+  padding: 14px 40px;
+}
+
+.home-button:hover {
+  background-color: #8878c3;
+  color: white;
+}
+
+
 .instruction-title {
   text-align: center;
   margin: 15px;
