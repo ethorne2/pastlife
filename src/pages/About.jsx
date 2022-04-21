@@ -4,7 +4,8 @@ function About() {
     return (
         <div>
             <br></br>
-            <h1>About the Past Life Project</h1>
+            <h1 className='page-title'>About the Past Life Project</h1>
+            <p>Coming soon!</p>
         </div>
     );
 }

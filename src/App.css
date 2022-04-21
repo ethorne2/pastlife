@@ -1,5 +1,38 @@
-.Home {
+.page-title {
   text-align: center;
+  margin: 15px;
+  font-size: 400%;
+}
+
+.button-view-past-life {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  padding: 15px;
+}
+
+.instruction-title {
+  text-align: center;
+  margin: 15px;
+  font-size: 300%;
+}
+
+.instruction-text {
+  text-align: center;
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
+.date-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+}
+
+.App {
+  background-color: #e6e8fa;
 }
 
 .App-header {
@@ -11,6 +44,13 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.definition-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
 }
 
 .App-link {
@@ -27,5 +67,9 @@
 }
 
 h1 {
+  font-family: Trattatello, fantasy;
+}
+
+h2 {
   font-family: Trattatello, fantasy;
 }

@@ -4,7 +4,7 @@ function Results() {
     return (
         <div>
             <br></br>
-            <h1>Your Past Life Results</h1>
+            <h1 className='page-title'>Your Past Life Results</h1>
         </div>
     );
 }
