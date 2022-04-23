@@ -4,7 +4,7 @@
   font-size: 400%;
 }
 
-.button-view-past-life {
+.cta-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,12 +12,12 @@
   padding: 15px;
 }
 
-.home-button {
+.cta-button {
   transition-duration: 0.4s;
   padding: 14px 40px;
 }
 
-.home-button:hover {
+.cta-button:hover {
   background-color: #8878c3;
   color: white;
 }

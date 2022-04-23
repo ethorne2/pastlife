@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Results() {
 
@@ -7,6 +7,12 @@ function Results() {
     const country = location.state.country;
     const deathsArray = location.state.deathsArray;
     const birthYear = location.state.birthYear;
+
+    /* function to send user back to the homepage and try again! */
+    const navigate = useNavigate();
+    const sendtoHome = () => {
+        navigate('/');
+    };
 
  //let pastLifeFound = false;
     // loop over json, look for year that matches birthYear
@@ -33,6 +39,9 @@ function Results() {
             <h1 className='page-title'>Your Past Life Results</h1>
             <p>This is your birth country: {country.label}</p>
             <p>This is your birth year: {birthYear}</p>
+            <div className='cta-button-container'>
+                <button className='cta-button' onClick={() => {sendtoHome()}}>Try Again</button>
+            </div>
         </div>
     );
 }

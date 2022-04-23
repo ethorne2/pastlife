@@ -51,8 +51,8 @@ function Home() {
             <div className='country-picker-container'>
                 <Select options={options} value={country} onChange={countryChangeHandler} />
             </div>
-            <div className='button-view-past-life'>
-                <button className='home-button' onClick={() => {sendtoLoading()}}>View My Past Life</button>
+            <div className='cta-button-container'>
+                <button className='cta-button' onClick={() => {sendtoLoading()}}>View My Past Life</button>
             </div>
         </div>
     );
