@@ -22,6 +22,18 @@
   color: white;
 }
 
+.loading-gif-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  padding: 15px;
+}
+
+.loading-gif {
+  width: 120px;
+  height: auto;
+}
 
 .instruction-title {
   text-align: center;
