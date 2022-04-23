@@ -59,8 +59,6 @@ function Loading() {
             <br></br>
             <h1 className='page-title'>Loading your Past Life</h1>
             <br></br>
-            <p>{birthdate}</p>
-            <p>{country.label}</p>
         </div>
     );
 }
