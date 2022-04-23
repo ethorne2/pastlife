@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { access_token, access_email } from '../WikiMediaAccess';
 
 function Loading() {
 
+    const navigate = useNavigate();
     const location = useLocation();
     const birthdate = location.state.birthdate;
     const birthdateYear = birthdate.slice(0,4);
@@ -27,42 +28,36 @@ function Loading() {
             }
         });
         const data = await response.json();
-        setFetchData(data);
+        return data;
+    };
+
+    function getDeathData(){
+        return Promise.all([fetchResults()])
     };
 
     useEffect(() => {
-        fetchResults();
+        getDeathData().then(([deathData]) => {
+            setFetchData(deathData);
+            const sendtoResults = () => {
+                if (fetchedData !== undefined){
+                    if(fetchedData !== {}){
+                        navigate('/results', 
+                        {state:
+                            {country:country, 
+                             deathsArray:fetchedData.deaths,
+                             birthYear: birthdateYearInt
+                            }});
+                    };
+                };
+            };
+            sendtoResults();
+        })
     }, []);
-
-    //async function sleep() {
-      //  await new Promise(resolve => setTimeout(resolve, 5000));
-      //}
-      
-    //sleep();
-
-    const deathsArray = fetchedData.deaths;
-    console.log(deathsArray);
-
-    let pastLifeFound = false;
-    // loop over json, look for year that matches birthYear
-    //while (pastLifeFound === false) {
-        //deathsArray.forEach((death) => {
-            //console.log(`${death.year} is when your past life died`);
-            //pastLifeFound = true
-            // compare the year of death to birthdateYearInt
-            //if (death.year == death.year){
-                //pastLifeFound = true;
-            //};
-            
-
-
-        //});
-    //};
 
     return (
         <div>
             <br></br>
-            <h1 className='page-title'>Your results are loading</h1>
+            <h1 className='page-title'>Loading your Past Life</h1>
             <br></br>
             <p>{birthdate}</p>
             <p>{country.label}</p>
