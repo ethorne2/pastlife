@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 function Results() {
 
+    // defining constant variables
     const location = useLocation();
     const country = location.state.country;
     const deathsArray = location.state.deathsArray;
@@ -14,23 +15,16 @@ function Results() {
         navigate('/');
     };
 
- //let pastLifeFound = false;
-    // loop over json, look for year that matches birthYear
-    //while (pastLifeFound === false) {
-        //deathsArray.forEach((death) => {
-            //console.log(`${death.year} is when your past life died`);
-            //pastLifeFound = true
-            // compare the year of death to birthdateYearInt
-            //if (death.year == death.year){
-                //pastLifeFound = true;
-            //};
-            
+    // Determine who the user's past life is, save as matchedDeath
+    var matchedDeath = {};
+    for (let i = 0; i < deathsArray.length; i++) {
+        if(deathsArray[i].year <= birthYear) {
+            matchedDeath = deathsArray[i];
+            break;
+        };
+    };
 
-
-        //});
-    //};
-
-
+    console.log(matchedDeath.year);
 
 
     return (

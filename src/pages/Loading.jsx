@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { access_token, access_email } from '../WikiMediaAccess';
 
 function Loading() {
 
+    // defining constants
     let loadingGif = require("../loading-buffering.gif");
-
     const navigate = useNavigate();
     const location = useLocation();
     const birthdate = location.state.birthdate;
@@ -15,12 +15,10 @@ function Loading() {
     const birthdateDay = birthdate.slice(8,11);
     const country = location.state.country;
 
-    const [fetchedData, setFetchData] = useState({});
-
     let url = 
     `https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/deaths/${birthdateMonth}/${birthdateDay}`;
 
-    /* Get the results of deaths that happened on their birthday */
+    // Get the results of deaths that happened on their birthday
     const fetchResults = async function () {
         const response = await fetch (url,
         {
@@ -33,33 +31,36 @@ function Loading() {
         return data;
     };
 
+    // async function that returns a promise
     function getDeathData(){
         return Promise.all([fetchResults()])
     };
 
+    const sendtoResults = (deathData) => {
+        // ensures that we have defined deathData before sending user to Results
+        if (deathData !== undefined){
+            if(deathData !== {}){
+                navigate('/results', 
+                {state:
+                    {country:country, 
+                     deathsArray:deathData.deaths,
+                     birthYear: birthdateYearInt
+                    }});
+            };
+        };
+    };
+
+    // useEffect called once and then sends user to Results
     useEffect(() => {
         getDeathData().then(([deathData]) => {
-            setFetchData(deathData);
-            const sendtoResults = () => {
-                if (fetchedData !== undefined){
-                    if(fetchedData !== {}){
-                        navigate('/results', 
-                        {state:
-                            {country:country, 
-                             deathsArray:fetchedData.deaths,
-                             birthYear: birthdateYearInt
-                            }});
-                    };
-                };
-            };
-            sendtoResults();
+            sendtoResults(deathData);
         })
     }, []);
 
     return (
         <div>
             <br></br>
-            <h1 className='page-title'>Loading your Past Life</h1>
+            <h1 className='page-title'>Loading Your Past Life</h1>
             <br></br>
             <div className='loading-gif-container'>
                 <img className='loading-gif' src={loadingGif} alt="wait until results are ready" />
