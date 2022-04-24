@@ -1,9 +1,17 @@
 import React from 'react';
 /* imports for Bootstrap Card */
 import Card from 'react-bootstrap/Card';
+import {  useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 
 function DefinitionCard() {
+
+  const navigate = useNavigate();
+  const sendtoAbout = () => {
+      navigate('/about');
+  }
+
     return (
       <div className='definition-card'>
         <Card style={{ width: '36rem' }}>
@@ -13,6 +21,7 @@ function DefinitionCard() {
             <Card.Text>
             the rebirth of a soul in a new body.
             </Card.Text>
+            <Button variant="secondary" onClick={() => {sendtoAbout()}}>Learn More</Button>
           </Card.Body>
         </Card>
       </div>

@@ -30,8 +30,21 @@
   padding: 15px;
 }
 
+.about-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  padding: 15px;
+}
+
 .loading-gif {
   width: 120px;
+  height: auto;
+}
+
+.about-image {
+  width: 250px;
   height: auto;
 }
 
@@ -49,7 +62,7 @@ table {
   border-width: 2px;
   border-style: solid;
   border-color: black;
-  width: 350px;
+  width: 80%;
   background-color: white;
 }
 
@@ -103,6 +116,13 @@ table:hover {
 }
 
 .definition-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+}
+
+.about-page-cards {
   display: flex;
   align-items: center;
   justify-content: center;
