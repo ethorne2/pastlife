@@ -30,7 +30,7 @@ function Results() {
     // 3. Past Life description
 
     //retrieve more info from Past Life's page on wikipedia
-    var description = "Your past life was secretive, there are no more detials"
+    var description = "Your past life was secretive, there are no more details..."
     if (matchedDeath.pages.length > 0){
         // do stuff
     }
@@ -68,6 +68,20 @@ function Results() {
                 <tbody>
                     <tr>
                         <td>{birthMonth}/{birthDay}/{matchedDeath.year}</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <div className='tables-container'>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Your Past Life Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{description}</td>
                     </tr>
                 </tbody>
             </table>
