@@ -26,14 +26,17 @@ function Results() {
         };
     };
 
-    // TO IMPLEMENT
-    // 3. Past Life description
 
     //retrieve more info from Past Life's page on wikipedia
-    var description = "Your past life was secretive, there are no more details..."
+    var description = "Your past life was secretive, there are no more details...";
+    var urlPastLife = "";
     if (matchedDeath.pages.length > 0){
-        // do stuff
-    }
+        description = matchedDeath.pages[0].extract;
+        let content_urls = matchedDeath.pages[0].content_urls;
+        console.log(content_urls);
+        let desktopOptions = content_urls['desktop'];
+        urlPastLife = desktopOptions['page'];
+    };
 
     return (
         <div>
@@ -82,6 +85,22 @@ function Results() {
                 <tbody>
                     <tr>
                         <td>{description}</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <div className='tables-container'>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Get More Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href={urlPastLife} target="_blank">
+                            View Your Past Life's Wikipedia Page</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
