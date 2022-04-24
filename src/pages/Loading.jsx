@@ -44,6 +44,8 @@ function Loading() {
                 {state:
                     {country:country, 
                      deathsArray:deathData.deaths,
+                     birthDay: birthdateDay,
+                     birthMonth: birthdateMonth,
                      birthYear: birthdateYearInt
                     }});
             };

@@ -35,6 +35,38 @@
   height: auto;
 }
 
+.tables-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+}
+
+table {
+  -moz-box-shadow: 10px 10px 5px #888;
+  -webkit-box-shadow: 10px 10px 5px #888;
+  box-shadow: 10px 10px 5px #888;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  width: 350px;
+  background-color: white;
+}
+
+td {
+  padding:10px;
+}
+
+th {
+  font-family: Trattatello, fantasy;
+  font-size: 175%;
+  padding: 10px;
+}
+
+table:hover {
+  background-color:	#D8BFD8;
+}
+
 .instruction-title {
   text-align: center;
   margin: 15px;
@@ -96,4 +128,18 @@ h1 {
 
 h2 {
   font-family: Trattatello, fantasy;
+}
+
+.uncovered-text {
+  font-family: Trattatello, fantasy;
+  font-size: 175%;
+  text-align: center;
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
+.results-text {
+  text-align: center;
+  margin-left: 50px;
+  margin-right: 50px;
 }
