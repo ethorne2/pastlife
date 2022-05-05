@@ -6,36 +6,18 @@ function Results() {
     // defining constant variables
     const location = useLocation();
     const country = location.state.country;
-    const deathsArray = location.state.deathsArray;
+    // const deathsArray = location.state.deathsArray;
     const birthYear = location.state.birthYear;
     const birthDay = location.state.birthDay;
     const birthMonth = location.state.birthMonth;
+    const description = location.state.description;
+    const urlPastLife = location.state.urlPastLife;
+    const matchedDeath = location.state.matchedDeath;
 
     /* function to send user back to the homepage and try again! */
     const navigate = useNavigate();
     const sendtoHome = () => {
         navigate('/');
-    };
-
-    // Determine who the user's past life is, save as matchedDeath
-    var matchedDeath = {};
-    for (let i = 0; i < deathsArray.length; i++) {
-        if(deathsArray[i].year <= birthYear) {
-            matchedDeath = deathsArray[i];
-            break;
-        };
-    };
-
-
-    //retrieve more info from Past Life's page on wikipedia
-    var description = "Your past life was secretive, there are no more details...";
-    var urlPastLife = "";
-    if (matchedDeath.pages.length > 0){
-        description = matchedDeath.pages[0].extract;
-        let content_urls = matchedDeath.pages[0].content_urls;
-        console.log(content_urls);
-        let desktopOptions = content_urls['desktop'];
-        urlPastLife = desktopOptions['page'];
     };
 
     return (

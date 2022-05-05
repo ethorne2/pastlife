@@ -2,7 +2,15 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { access_token, access_email } from '../WikiMediaAccess';
 
+
 function Loading() {
+
+    // get nouns from description
+    //var WordPOS = require('wordpos');
+    //let wordpos = new WordPOS();
+    //wordpos.getNouns("test words to see if this work for me", (result) => {
+        //console.log(result);
+    //});
 
     // defining constants
     let loadingGif = require("../loading-buffering.gif");
@@ -40,10 +48,36 @@ function Loading() {
         // ensures that we have defined deathData before sending user to Results
         if (deathData !== undefined){
             if(deathData !== {}){
+                // get info on deathData
+                // Determine who the user's past life is, save as matchedDeath
+                var matchedDeath = {};
+                var deathsArray = deathData.deaths;
+                for (let i = 0; i < deathsArray.length; i++) {
+                    if(deathsArray[i].year <= birthdateYear) {
+                        matchedDeath = deathsArray[i];
+                        break;
+                    };
+                };
+                //retrieve more info from Past Life's page on wikipedia
+                var description = "Your past life was secretive, there are no more details...";
+                var urlPastLife = "";
+                var descriptionNouns = [];
+                if (matchedDeath.pages.length > 0){
+                    description = matchedDeath.pages[0].extract;
+                    let content_urls = matchedDeath.pages[0].content_urls;
+                    let desktopOptions = content_urls['desktop'];
+                    urlPastLife = desktopOptions['page'];   
+                };
+
+
+                // send to Results
                 navigate('/results', 
                 {state:
                     {country:country, 
-                     deathsArray:deathData.deaths,
+                     description: description,
+                     urlPastLife: urlPastLife,
+                     deathsArray: deathData.deaths,
+                     matchedDeath: matchedDeath,
                      birthDay: birthdateDay,
                      birthMonth: birthdateMonth,
                      birthYear: birthdateYearInt

@@ -16,7 +16,9 @@
     "react-scripts": "5.0.1",
     "react-select": "^5.3.0",
     "react-select-country-list": "^2.2.3",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "wordpos": "^2.1.0",
+    "wordpos-web": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
