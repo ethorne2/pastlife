@@ -21,7 +21,7 @@ function DefinitionCard() {
             <Card.Text>
             the rebirth of a soul in a new body.
             </Card.Text>
-            <Button variant="secondary" onClick={() => {sendtoAbout()}}>Learn More</Button>
+            <Button variant="secondary" onClick={() => {sendtoAbout()}}>Visit our About page</Button>
           </Card.Body>
         </Card>
       </div>
