@@ -2,15 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { access_token, access_email } from '../WikiMediaAccess';
 
-
 function Loading() {
-
-    // get nouns from description
-    //var WordPOS = require('wordpos');
-    //let wordpos = new WordPOS();
-    //wordpos.getNouns("test words to see if this work for me", (result) => {
-        //console.log(result);
-    //});
 
     // defining constants
     let loadingGif = require("../loading-buffering.gif");
@@ -61,7 +53,6 @@ function Loading() {
                 //retrieve more info from Past Life's page on wikipedia
                 var description = "Your past life was secretive, there are no more details...";
                 var urlPastLife = "";
-                var descriptionNouns = [];
                 if (matchedDeath.pages.length > 0){
                     description = matchedDeath.pages[0].extract;
                     let content_urls = matchedDeath.pages[0].content_urls;
