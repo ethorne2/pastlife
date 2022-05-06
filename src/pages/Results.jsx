@@ -13,6 +13,9 @@ function Results() {
     const description = location.state.description;
     const urlPastLife = location.state.urlPastLife;
     const matchedDeath = location.state.matchedDeath;
+    const nounsArray = location.state.nounsArray;
+
+    console.log(nounsArray);
 
     /* function to send user back to the homepage and try again! */
     const navigate = useNavigate();
@@ -67,6 +70,20 @@ function Results() {
                 <tbody>
                     <tr>
                         <td>{description}</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <div className='tables-container'>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Your Past Life Memory Triggers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><em>The things of this world that will trigger your past life memories:</em></td>
                     </tr>
                 </tbody>
             </table>

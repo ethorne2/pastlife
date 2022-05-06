@@ -60,12 +60,30 @@ function Loading() {
                     urlPastLife = desktopOptions['page'];   
                 };
 
-
+                // find nouns from the description (using pos module)
+                var nounsArray = [];
+                let pos = require('pos');
+                var words = new pos.Lexer().lex(description);
+                var tagger = new pos.Tagger();
+                var taggedWords = tagger.tag(words);
+                for (var i in taggedWords) {
+                    var taggedWord = taggedWords[i];
+                    var word = taggedWord[0];
+                    var tag = taggedWord[1];
+                    // checks that word is a noun (singular or plural)
+                    if (tag === 'NN' || tag === 'NNS'){
+                        // checks that the word doesn't start with a capital letter
+                        if(word.charAt(0) !== word.charAt(0).toUpperCase()){
+                            nounsArray.push(word);
+                        }
+                    }
+                }
                 // send to Results
                 navigate('/results', 
                 {state:
                     {country:country, 
                      description: description,
+                     nounsArray: nounsArray,
                      urlPastLife: urlPastLife,
                      deathsArray: deathData.deaths,
                      matchedDeath: matchedDeath,
