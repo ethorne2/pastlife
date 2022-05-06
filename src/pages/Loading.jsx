@@ -62,6 +62,7 @@ function Loading() {
 
                 // find nouns from the description (using pos module)
                 var nounsArray = [];
+                var nounsString = "";
                 let pos = require('pos');
                 var words = new pos.Lexer().lex(description);
                 var tagger = new pos.Tagger();
@@ -74,16 +75,23 @@ function Loading() {
                     if (tag === 'NN' || tag === 'NNS'){
                         // checks that the word doesn't start with a capital letter
                         if(word.charAt(0) !== word.charAt(0).toUpperCase()){
-                            nounsArray.push(word);
+                            if (! nounsArray.includes(word)){
+                                nounsArray.push(word);
+                                nounsString += word + ', ';
+                            }
                         }
                     }
                 }
+                // remove ", " from end of the string
+                nounsString = nounsString.slice(0, -2);
+
                 // send to Results
                 navigate('/results', 
                 {state:
                     {country:country, 
                      description: description,
                      nounsArray: nounsArray,
+                     nounsString: nounsString,
                      urlPastLife: urlPastLife,
                      deathsArray: deathData.deaths,
                      matchedDeath: matchedDeath,

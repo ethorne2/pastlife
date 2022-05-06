@@ -13,9 +13,8 @@ function Results() {
     const description = location.state.description;
     const urlPastLife = location.state.urlPastLife;
     const matchedDeath = location.state.matchedDeath;
-    const nounsArray = location.state.nounsArray;
-
-    console.log(nounsArray);
+    // const nounsArray = location.state.nounsArray;
+    const nounsString = location.state.nounsString;
 
     /* function to send user back to the homepage and try again! */
     const navigate = useNavigate();
@@ -83,7 +82,14 @@ function Results() {
                 </thead>
                 <tbody>
                     <tr>
-                        <td><em>The things of this world that will trigger your past life memories:</em></td>
+                        <td>
+                            <p>
+                                <em>The things of this world that will trigger your past life memories:</em>
+                            </p>
+                            <p>
+                                <b>{nounsString}</b>
+                            </p>
+                        </td>
                     </tr>
                 </tbody>
             </table>
