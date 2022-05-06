@@ -4,8 +4,8 @@ import { access_token, access_email } from '../WikiMediaAccess';
 
 function Loading() {
 
-    // defining constants
     let loadingGif = require("../loading-buffering.gif");
+    // defining constants
     const navigate = useNavigate();
     const location = useLocation();
     const birthdate = location.state.birthdate;
