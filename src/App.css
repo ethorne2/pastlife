@@ -30,6 +30,19 @@
   padding: 15px;
 }
 
+.reincarnation-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  padding: 15px;
+}
+
+.reincarnation-img {
+  width: 650px;
+  height: auto;
+}
+
 .about-image-container {
   display: flex;
   align-items: center;

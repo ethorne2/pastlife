@@ -36,11 +36,10 @@ function Home() {
             <br></br>
             <h1 className='page-title'>Welcome to Past Life</h1>
             <br></br>
-            <DefinitionCard />
             <h2 className='instruction-title'>Instructions</h2>
             <p className='instruction-text'>Ready to find your past life?</p>
             <p className='instruction-text'><b>Enter your birthdate and birth country 
-            to learn about your past life.</b></p>
+            to discover who you were.</b></p>
             <br></br>
             <h2 className='instruction-title'> Enter your birthdate</h2>
             <div className='date-picker'>
@@ -54,6 +53,8 @@ function Home() {
             <div className='cta-button-container'>
                 <button className='cta-button' onClick={() => {sendtoLoading()}}>View My Past Life</button>
             </div>
+            <DefinitionCard />
+            <br></br>
         </div>
     );
 }

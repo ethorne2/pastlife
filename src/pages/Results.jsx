@@ -2,6 +2,8 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 function Results() {
+    // get reincarnation image from imageDownloader service
+    let reincarnationImage = require("../imagedownloader/dataset/reincarnation/Image_1.jpg");
 
     // defining constant variables
     const location = useLocation();
@@ -28,6 +30,9 @@ function Results() {
             <h1 className='page-title'>Your Past Life Results</h1>
             <br></br>
             <p className='uncovered-text'>~ You have uncovered your past life ~</p>
+            <div className='reincarnation-img-container'>
+                <img className='reincarnation-img' src={reincarnationImage} alt="reincarnation from death to birth"/>
+            </div>
             <p className='results-text'>Your past life connection was made with your 
             <b> {birthMonth}/{birthDay}/{birthYear}</b> birthdate 
             and your birth country of <b>{country.label}</b>.</p>

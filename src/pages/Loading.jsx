@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { access_token, access_email } from '../WikiMediaAccess';
 
 function Loading() {
-
     let loadingGif = require("../loading-buffering.gif");
     // defining constants
     const navigate = useNavigate();
@@ -17,6 +16,7 @@ function Loading() {
 
     let url = 
     `https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/deaths/${birthdateMonth}/${birthdateDay}`;
+
 
     // Get the results of deaths that happened on their birthday
     const fetchResults = async function () {
@@ -84,6 +84,9 @@ function Loading() {
                 }
                 // remove ", " from end of the string
                 nounsString = nounsString.slice(0, -2);
+
+                // interact with imageDownloader service to download 3 images based on nouns
+                //getNounImages(nounsArray);
 
                 // send to Results
                 navigate('/results', 
