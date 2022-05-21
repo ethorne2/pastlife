@@ -6,7 +6,7 @@ def image(keyword):
 
     completed_text = 'not completed'
     while completed_text == 'not completed':
-        f = open("keyword.txt" , "r")
+        f = open("completed.txt" , "r")
         completed_text = f.read()
         f.close()
 
