@@ -85,9 +85,6 @@ function Loading() {
                 // remove ", " from end of the string
                 nounsString = nounsString.slice(0, -2);
 
-                // interact with imageDownloader service to download 3 images based on nouns
-                //getNounImages(nounsArray);
-
                 // send to Results
                 navigate('/results', 
                 {state:
