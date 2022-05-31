@@ -36,20 +36,57 @@ function Loading() {
         return Promise.all([fetchResults()])
     };
 
+
+    
+    function determinePastlife(deathData, birthdateYear){
+        // function to determine who the user's past life is and return the matchedDeath
+        var matchedDeath = {};
+        var deathsArray = deathData.deaths;
+        for (let i = 0; i < deathsArray.length; i++) {
+            if(deathsArray[i].year <= birthdateYear) {
+                matchedDeath = deathsArray[i];
+                break;
+            };
+        };
+        return matchedDeath;
+    };
+
+    function getMemoryTriggers(description){
+        // function to get memory trigger nouns using pastlife description 
+        // uses pos module
+        var nounsArray = [];
+        var nounsString = "";
+        let pos = require('pos');
+        var words = new pos.Lexer().lex(description);
+        var tagger = new pos.Tagger();
+        var taggedWords = tagger.tag(words);
+        for (var i in taggedWords) {
+            var taggedWord = taggedWords[i];
+            var word = taggedWord[0];
+            var tag = taggedWord[1];
+            // checks that word is a noun (singular or plural)
+            if (tag === 'NN' || tag === 'NNS'){
+                // checks that the word doesn't start with a capital letter
+                if(word.charAt(0) !== word.charAt(0).toUpperCase()){
+                    if (! nounsArray.includes(word)){
+                        nounsArray.push(word);
+                        nounsString += word + ', ';
+                    }
+                }
+            }
+        }
+        // remove ", " from end of the string
+        nounsString = nounsString.slice(0, -2);
+        return nounsString;
+    };
+
     const sendtoResults = (deathData) => {
         // ensures that we have defined deathData before sending user to Results
         if (deathData !== undefined){
             if(deathData !== {}){
-                // get info on deathData
-                // Determine who the user's past life is, save as matchedDeath
-                var matchedDeath = {};
-                var deathsArray = deathData.deaths;
-                for (let i = 0; i < deathsArray.length; i++) {
-                    if(deathsArray[i].year <= birthdateYear) {
-                        matchedDeath = deathsArray[i];
-                        break;
-                    };
-                };
+                // determines pastlife using deathData and birhtdateYear
+                let matchedDeath = determinePastlife(deathData, birthdateYear);
+
                 //retrieve more info from Past Life's page on wikipedia
                 var description = "Your past life was secretive, there are no more details...";
                 var urlPastLife = "";
@@ -60,37 +97,14 @@ function Loading() {
                     urlPastLife = desktopOptions['page'];   
                 };
 
-                // find nouns from the description (using pos module)
-                var nounsArray = [];
-                var nounsString = "";
-                let pos = require('pos');
-                var words = new pos.Lexer().lex(description);
-                var tagger = new pos.Tagger();
-                var taggedWords = tagger.tag(words);
-                for (var i in taggedWords) {
-                    var taggedWord = taggedWords[i];
-                    var word = taggedWord[0];
-                    var tag = taggedWord[1];
-                    // checks that word is a noun (singular or plural)
-                    if (tag === 'NN' || tag === 'NNS'){
-                        // checks that the word doesn't start with a capital letter
-                        if(word.charAt(0) !== word.charAt(0).toUpperCase()){
-                            if (! nounsArray.includes(word)){
-                                nounsArray.push(word);
-                                nounsString += word + ', ';
-                            }
-                        }
-                    }
-                }
-                // remove ", " from end of the string
-                nounsString = nounsString.slice(0, -2);
+                // finds nouns from the description to get the memory triggers, returns nounsString
+                let nounsString = getMemoryTriggers(description);
 
                 // send to Results
                 navigate('/results', 
                 {state:
                     {country:country, 
                      description: description,
-                     nounsArray: nounsArray,
                      nounsString: nounsString,
                      urlPastLife: urlPastLife,
                      deathsArray: deathData.deaths,
