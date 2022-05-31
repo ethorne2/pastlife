@@ -111,7 +111,6 @@ function Loading() {
                      nounsString: nounsString,
                      urlPastLife: urlPastLife,
                      matchedPastlifeImage: matchedPastlifeImage,
-                     deathsArray: deathData.deaths,
                      matchedDeath: matchedDeath,
                      birthDay: birthdateDay,
                      birthMonth: birthdateMonth,
