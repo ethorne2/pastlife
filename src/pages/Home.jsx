@@ -10,10 +10,10 @@ import countryList from 'react-select-country-list';
 
 function Home() {
 
-    /* useState for birthdate */
+    // useState for birthdate
     const [birthdate, setBirthdate] = useState(new Date());
 
-    /* useState for birth country */
+    // useState for birth country
     const [country, setCountry] = useState('');
     const options = useMemo(() => countryList().getData(), []);
 
@@ -21,10 +21,10 @@ function Home() {
         setCountry(country);
     };
 
-    /* Get the values of the birthday */
+    // Get the values of the birthday
     const formattedBirthdate = birthdate.toISOString().slice(0,10);
 
-    /* function to send formattedBirthdate and country to the loading screen for fetching from API */
+    // function to send formattedBirthdate and country to the loading screen for fetching from API
     const navigate = useNavigate();
     const sendtoLoading = () => {
         navigate('/loading', {state:{birthdate:formattedBirthdate, country:country}});

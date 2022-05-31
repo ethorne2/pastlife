@@ -16,7 +16,7 @@ function Results() {
     const matchedDeath = location.state.matchedDeath;
     const nounsString = location.state.nounsString;
 
-    /* function to send user back to the homepage and try again! */
+    // function to send user back to the homepage and try again!
     const navigate = useNavigate();
     const sendtoHome = () => {
         navigate('/');

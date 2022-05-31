@@ -3,7 +3,7 @@ import {  useNavigate } from 'react-router-dom';
 
 function NoPage() {
 
-    /* function to send user back to the homepage */
+    // function to send user back to the homepage
     const navigate = useNavigate();
     const sendtoHome = () => {
         navigate('/');
