@@ -15,6 +15,7 @@ function Results() {
     const urlPastLife = location.state.urlPastLife;
     const matchedDeath = location.state.matchedDeath;
     const nounsString = location.state.nounsString;
+    const matchedPastlifeImage = location.state.matchedPastlifeImage;
 
     // function to send user back to the homepage and try again!
     const navigate = useNavigate();
@@ -44,6 +45,11 @@ function Results() {
                 <tbody>
                     <tr>
                         <td>{matchedDeath.text}</td>
+                    </tr>
+                    <tr>
+                        <div className='pastlife-img-container'>
+                            <td><img className='pastlife-img' src={matchedPastlifeImage} alt="image of your matched past life"/></td>
+                        </div>
                     </tr>
                 </tbody>
             </table>

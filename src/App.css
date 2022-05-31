@@ -43,6 +43,18 @@
   height: auto;
 }
 
+.pastlife-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  padding: 15px;
+}
+
+.pastlife-img {
+  max-width: 350px;
+}
+
 .about-image-container {
   display: flex;
   align-items: center;

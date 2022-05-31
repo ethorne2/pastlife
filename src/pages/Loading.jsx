@@ -36,7 +36,6 @@ function Loading() {
         return Promise.all([fetchResults()])
     };
 
-
     
     function determinePastlife(deathData, birthdateYear){
         // function to determine who the user's past life is and return the matchedDeath
@@ -90,11 +89,13 @@ function Loading() {
                 //retrieve more info from Past Life's page on wikipedia
                 var description = "Your past life was secretive, there are no more details...";
                 var urlPastLife = "";
+                var matchedPastlifeImage = "";
                 if (matchedDeath.pages.length > 0){
                     description = matchedDeath.pages[0].extract;
                     let content_urls = matchedDeath.pages[0].content_urls;
                     let desktopOptions = content_urls['desktop'];
-                    urlPastLife = desktopOptions['page'];   
+                    urlPastLife = desktopOptions['page']; 
+                    matchedPastlifeImage = matchedDeath.pages[0].originalimage.source;  
                 };
 
                 // finds nouns from the description to get the memory triggers, returns nounsString
@@ -107,6 +108,7 @@ function Loading() {
                      description: description,
                      nounsString: nounsString,
                      urlPastLife: urlPastLife,
+                     matchedPastlifeImage: matchedPastlifeImage,
                      deathsArray: deathData.deaths,
                      matchedDeath: matchedDeath,
                      birthDay: birthdateDay,
