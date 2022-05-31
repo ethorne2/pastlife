@@ -1,10 +1,10 @@
 import React from 'react';
-/* imports for Bootstrap Navbar */
 import Container from 'react-bootstrap/Container';
 import  Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
 function NavigationBar() {
+    // Displays the Navigation bar from bootstrap with links to home, about pages
     return (
         <Navbar bg="light" variant="light">
             <Container>

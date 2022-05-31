@@ -7,7 +7,7 @@ function About() {
 
     let aboutImage = require("../Reincarnation.png");
 
-    /* function to send user back to the homepage */
+    // function to send user back to the homepage
     const navigate = useNavigate();
     const sendtoHome = () => {
         navigate('/');
