@@ -89,13 +89,15 @@ function Loading() {
                 //retrieve more info from Past Life's page on wikipedia
                 var description = "Your past life was secretive, there are no more details...";
                 var urlPastLife = "";
-                var matchedPastlifeImage = "";
+                var matchedPastlifeImage = require("../pastlifePlaceholderImg.jpeg");
                 if (matchedDeath.pages.length > 0){
                     description = matchedDeath.pages[0].extract;
                     let content_urls = matchedDeath.pages[0].content_urls;
                     let desktopOptions = content_urls['desktop'];
-                    urlPastLife = desktopOptions['page']; 
-                    matchedPastlifeImage = matchedDeath.pages[0].originalimage.source;  
+                    urlPastLife = desktopOptions['page'];
+                    if(matchedDeath.pages[0].originalimage !== undefined){
+                        matchedPastlifeImage = matchedDeath.pages[0].originalimage.source; 
+                    }; 
                 };
 
                 // finds nouns from the description to get the memory triggers, returns nounsString
