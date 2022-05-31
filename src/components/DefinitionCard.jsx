@@ -1,5 +1,4 @@
 import React from 'react';
-/* imports for Bootstrap Card */
 import Card from 'react-bootstrap/Card';
 import {  useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
@@ -12,6 +11,8 @@ function DefinitionCard() {
       navigate('/about');
   }
 
+    // Display Definition Card from bootstrap
+    // Shows definition of reincarnation and link to About page
     return (
       <div className='definition-card'>
         <Card style={{ width: '36rem' }}>

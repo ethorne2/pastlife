@@ -8,14 +8,12 @@ function Results() {
     // defining constant variables
     const location = useLocation();
     const country = location.state.country;
-    // const deathsArray = location.state.deathsArray;
     const birthYear = location.state.birthYear;
     const birthDay = location.state.birthDay;
     const birthMonth = location.state.birthMonth;
     const description = location.state.description;
     const urlPastLife = location.state.urlPastLife;
     const matchedDeath = location.state.matchedDeath;
-    // const nounsArray = location.state.nounsArray;
     const nounsString = location.state.nounsString;
 
     /* function to send user back to the homepage and try again! */

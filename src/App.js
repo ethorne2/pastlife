@@ -9,6 +9,7 @@ import Loading from "./pages/Loading";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  // Creates the Routes for our website with the appropriate paths
   return (
     <div className='App'>
     <BrowserRouter>
