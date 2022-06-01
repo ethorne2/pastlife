@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pastlife/static/css/main.9ee211e1.css",
-    "main.js": "/pastlife/static/js/main.094e9556.js",
+    "main.js": "/pastlife/static/js/main.8569d66c.js",
     "static/js/787.53755ef3.chunk.js": "/pastlife/static/js/787.53755ef3.chunk.js",
     "static/media/Reincarnation.png": "/pastlife/static/media/Reincarnation.1738d096555667039981.png",
     "static/media/loading-buffering.gif": "/pastlife/static/media/loading-buffering.706124a2c0232f216d63.gif",
@@ -9,11 +9,11 @@
     "static/media/pastlifePlaceholderImg.jpeg": "/pastlife/static/media/pastlifePlaceholderImg.178cb30727dd2fb8b224.jpeg",
     "index.html": "/pastlife/index.html",
     "main.9ee211e1.css.map": "/pastlife/static/css/main.9ee211e1.css.map",
-    "main.094e9556.js.map": "/pastlife/static/js/main.094e9556.js.map",
+    "main.8569d66c.js.map": "/pastlife/static/js/main.8569d66c.js.map",
     "787.53755ef3.chunk.js.map": "/pastlife/static/js/787.53755ef3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9ee211e1.css",
-    "static/js/main.094e9556.js"
+    "static/js/main.8569d66c.js"
   ]
 }
