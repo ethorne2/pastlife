@@ -8,10 +8,10 @@ function NavigationBar() {
     return (
         <Navbar bg="light" variant="light">
             <Container>
-                <Navbar.Brand href="/">Past Life</Navbar.Brand>
+                <Navbar.Brand href="/pastlife">Past Life</Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/about">About</Nav.Link>
+                    <Nav.Link href="/pastlife">Home</Nav.Link>
+                    <Nav.Link href="/pastlife/about">About</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>
