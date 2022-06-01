@@ -1,3 +1,8 @@
+# View Pastlife Deployment on Github Pages
+
+https://ethorne2.github.io/pastlife/
+NOTE: The Navigation Bar has a bug so the About link does not work, please view the about page by visiting the link at the bottom of the home page.
+
 # Getting Started (React Apps How to Guide)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
