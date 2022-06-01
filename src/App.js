@@ -14,11 +14,11 @@ function App() {
     <div className='App'>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/pastlife/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="results" element={<Results />} />
-          <Route path="loading" element={<Loading />} />
+          <Route path="/pastlife/about" element={<About />} />
+          <Route path="/pastlife/results" element={<Results />} />
+          <Route path="/pastlife/loading" element={<Loading />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
