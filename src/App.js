@@ -19,7 +19,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/results" element={<Results />} />
           <Route path="/loading" element={<Loading />} />
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
